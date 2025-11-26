@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>BMI Calculator - FitLife Gym</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .bmi-box {
+      max-width: 420px;
+      margin: 40px auto;
+      background: var(--card);
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+      text-align: center;
+    }
+    .bmi-box h2 {
+      margin-bottom: 20px;
+    }
+    .bmi-box input {
+      margin-bottom: 12px;
+    }
+    #bmiResult {
+      margin-top: 20px;
+      font-size: 18px;
+      transition: all 0.5s ease;
+    }
+    /* BMI Scale table */
+    .bmi-scale {
+      margin-top: 20px;
+      text-align: left;
+      width: 100%;
+      border-collapse: collapse;
+    }
+    .bmi-scale th, .bmi-scale td {
+      border: 1px solid #ddd;
+      padding: 8px;
+    }
+    .bmi-scale th {
+      background-color: var(--accent);
+      color: white;
+    }
+    .bmi-scale tr:nth-child(even){background-color: #f9f9f9;}
+  </style>
+</head>
+<body>
+  <nav class="navbar">
+    <a href="index.html" class="logo">FitLife Gym</a>
+    <button id="menuBtn" class="menu-btn">☰</button>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="membership.html">Membership</a></li>
+      <li><a href="trainers.html">Trainers</a></li>
+      <li><a href="workouts.html">Workouts</a></li>
+      <li><a href="bmi.html">BMI</a></li>
+      <li><a href="attendance.html">Attendance</a></li>
+      <li><a href="login.html">Login</a></li>
+    </ul>
+  </nav>
+
+  <section class="bmi-section content">
+    <div class="bmi-box">
+      <h2>BMI Calculator</h2>
+      <form id="bmiForm">
+        <input id="height" type="number" placeholder="Height (cm)" required />
+        <input id="weight" type="number" placeholder="Weight (kg)" required />
+        <button class="btn" type="submit">Calculate</button>
+      </form>
+      <h3 id="bmiResult"></h3>
+
+      <!-- BMI Scale Table -->
+      <table class="bmi-scale">
+        <thead>
+          <tr>
+            <th>Category</th>
+            <th>BMI Range</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Underweight</td>
+            <td>&lt; 18.5</td>
+          </tr>
+          <tr>
+            <td>Normal</td>
+            <td>18.5 - 24.9</td>
+          </tr>
+          <tr>
+            <td>Overweight</td>
+            <td>25 - 29.9</td>
+          </tr>
+          <tr>
+            <td>Obese</td>
+            <td>&ge; 30</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <script src="script.js"></script>
+  <script>
+    const bmiForm = document.getElementById('bmiForm');
+    const bmiResult = document.getElementById('bmiResult');
+
+    if (bmiForm){
+      bmiForm.addEventListener('submit', function(e){
+        e.preventDefault();
+        const h = parseFloat(document.getElementById('height').value);
+        const w = parseFloat(document.getElementById('weight').value);
+        if (!h || !w){ alert('Enter valid numbers'); return; }
+
+        const bmi = (w / ((h/100)*(h/100))).toFixed(2);
+        let status = '';
+        if (bmi < 18.5) status = 'Underweight';
+        else if (bmi < 24.9) status = 'Normal';
+        else if (bmi < 29.9) status = 'Overweight';
+        else status = 'Obese';
+
+        bmiResult.style.opacity = 0;
+        bmiResult.innerHTML = `Your BMI: <strong>${bmi}</strong> (${status})`;
+        setTimeout(() => { bmiResult.style.opacity = 1; }, 100);
+      });
+    }
+  </script>
+</body>
+</html>

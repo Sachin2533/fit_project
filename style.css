@@ -1,0 +1,220 @@
+/* style.css - updated & interactive */
+
+/* VARIABLES */
+:root{
+  --accent: #ff6200;
+  --bg: #f4f4f4;
+  --card: #ffffff;
+  --text: #111827;
+  --hover-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+
+/* RESET */
+*{box-sizing:border-box}
+body{
+  margin:0;
+  font-family: Arial, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+}
+
+/* NAVBAR */
+.navbar{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:14px 20px;
+  background:#222;
+  color:white;
+  position:sticky; top:0;
+  z-index:1000;
+}
+.logo{
+  font-weight: 700;
+  color: white;
+  text-decoration: none; 
+  cursor: pointer;
+}
+.menu-btn{display:none;background:transparent;border:0;color:white;font-size:24px;cursor:pointer}
+
+/* NAV LINKS */
+.nav-links{
+  list-style:none;
+  display:flex;
+  gap:16px;
+  margin:0;
+  padding:0;
+}
+.nav-links a{
+  color:white;
+  text-decoration:none;
+  font-weight:500;
+  transition: color 0.3s;
+}
+.nav-links a:hover{color:var(--accent)}
+
+/* HERO */
+.hero{
+  padding:80px 20px;
+  text-align:center;
+  background-image: url('https://images.pexels.com/photos/1954524/pexels-photo-1954524.jpeg');
+  background-size:cover;
+  background-position:center;
+  color:white;
+}
+.hero h1{font-size:36px;margin-bottom:12px}
+.hero p{font-size:18px;margin-bottom:16px}
+
+/* BUTTON */
+.btn{
+  display:inline-block;
+  background:var(--accent);
+  color:white;
+  padding:10px 18px;
+  border-radius:8px;
+  text-decoration:none;
+  font-weight:500;
+  transition:all 0.3s ease;
+}
+.btn:hover{
+  background:white;
+  color:var(--accent);
+  transform:scale(1.05);
+}
+
+/* CONTENT */
+.content{padding:30px; max-width:1100px;margin:auto}
+.feature-boxes{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:20px}
+.box{background:var(--card);padding:16px;border-radius:10px;box-shadow:0 6px 18px rgba(0,0,0,0.06);transition:all 0.3s ease; cursor:pointer;}
+.box img{width:100%;border-radius:8px}
+.box:hover{transform:translateY(-5px); box-shadow:var(--hover-shadow);}
+
+/* PLAN CARDS, TRAINER CARDS, WORKOUT CARDS */
+.plan-card, .trainer-card{
+  background:var(--card);
+  padding:16px;
+  border-radius:10px;
+  margin-bottom:12px;
+  box-shadow:0 6px 18px rgba(0,0,0,0.06);
+  transition:all 0.3s ease;
+}
+.plan-card:hover, .trainer-card:hover, .workout-card:hover{
+  transform:translateY(-5px);
+  box-shadow:var(--hover-shadow);
+  cursor:pointer;
+}
+
+
+
+/* TRAINERS GRID */
+.trainer-card img {
+      width: 100%;
+      height: 250px; /* fixed height for uniformity */
+      object-fit: cover; /* maintain aspect ratio */
+      border-radius: 8px;
+      transition: transform 0.3s;
+    }
+    /* Hover effect */
+    .trainer-card:hover img {
+      transform: scale(1.05);
+    }
+    .trainer-card:hover {
+      box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+    }
+
+/* .trainers{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px} */
+.workout-container{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.workout-card img{width:100%;border-radius:8px}
+
+/* FORMS */
+.form-section{display:flex;gap:20px;align-items:center;justify-content:center;padding:30px}
+.form-container{
+  background:var(--card);
+  padding:20px;
+  border-radius:10px;
+  max-width:420px;
+  box-shadow:0 6px 18px rgba(0,0,0,0.06);
+}
+.form-container input, .form-container textarea, .contact-form input, .contact-form textarea{
+  width:100%;
+  padding:10px;
+  margin:8px 0;
+  border-radius:6px;
+  border:1px solid #e6e6e6;
+}
+
+/* ATTENDANCE */
+.attendance-box{
+  background:var(--card);
+  padding:20px;
+  border-radius:10px;
+  box-shadow:0 6px 18px rgba(0,0,0,0.06);
+}
+/* calendar style */
+.attendance-calendar{
+  margin-top:15px;
+  display:flex;
+  flex-wrap:wrap;
+  gap:5px;
+}
+.attendance-calendar div{
+  flex:1 0 13%;
+  padding:10px;
+  text-align:center;
+  background:#eee;
+  border-radius:6px;
+  cursor:pointer;
+  transition:all 0.2s ease;
+}
+.attendance-calendar div:hover{
+  background:var(--accent);
+  color:white;
+  transform:scale(1.05);
+}
+
+/* BMI */
+.bmi-box{
+  background:var(--card);
+  padding:20px;
+  border-radius:10px;
+  box-shadow:0 6px 18px rgba(0,0,0,0.06);
+  max-width:420px;
+  margin:auto;
+}
+#bmiResult{
+  margin-top:12px;
+  font-weight:600;
+  text-align:center;
+}
+
+/* FITNESS TIPS */
+#fitnessTips{
+  background:var(--card);
+  padding:20px;
+  border-radius:10px;
+  margin-top:20px;
+  box-shadow:0 6px 18px rgba(0,0,0,0.06);
+}
+#fitnessTips p{
+  margin:10px 0;
+  font-size:16px;
+}
+
+/* FOOTER */
+.footer{padding:20px;text-align:center;color:#666}
+
+/* ANIMATIONS */
+.fade-in{opacity:0;transform:translateY(10px);transition:all 0.6s ease}
+.fade-in.visible{opacity:1;transform:none}
+
+/* RESPONSIVE */
+@media(max-width:992px){
+  .workout-container{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:768px){
+  .menu-btn{display:block}
+  .nav-links{display:none;flex-direction:column;background:#222;position:absolute;right:14px;top:60px;padding:10px;border-radius:8px}
+  .nav-links.active{display:flex}
+  .workout-container{grid-template-columns:repeat(1,1fr)}
+  .hero{padding:60px 12px}
+}

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Attendance - FitLife Gym</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <a href="index.html" class="logo">FitLife Gym</a>
+    <button id="menuBtn" class="menu-btn">☰</button>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="membership.html">Membership</a></li>
+      <li><a href="trainers.html">Trainers</a></li>
+      <li><a href="workouts.html">Workouts</a></li>
+      <li><a href="bmi.html">BMI</a></li>
+      <li><a href="attendance.html">Attendance</a></li>
+      <li><a href="login.html">Login</a></li>
+    </ul>
+  </nav>
+
+  <!-- Attendance Section -->
+  <section class="attendance-section content fade-in">
+    <div class="attendance-box">
+      <h2>Member Attendance</h2>
+
+      <!-- Calendar display -->
+      <input type="date" id="attendanceDate" />
+
+      <!-- Attendance form -->
+      <input id="memberName" type="text" placeholder="Enter Member Name" />
+      <button id="markAttendance" class="btn">Mark Present</button>
+
+      <h3>Attendance Records:</h3>
+      <ul id="attendanceList" class="attendance-list"></ul>
+    </div>
+  </section>
+
+  <script src="script.js"></script>
+  <script>
+    // Update markAttendance function to use selected date
+    const markBtn = document.getElementById('markAttendance');
+    const attendanceList = document.getElementById('attendanceList');
+    const dateInput = document.getElementById('attendanceDate');
+
+    function renderAttendance(){
+      if (!attendanceList) return;
+      attendanceList.innerHTML = '';
+      const records = JSON.parse(localStorage.getItem('attendance')) || [];
+      records.forEach(r => {
+        const li = document.createElement('li');
+        li.textContent = r.date + ' — ' + r.name;
+        attendanceList.appendChild(li);
+      });
+    }
+
+    if (markBtn){
+      markBtn.addEventListener('click', function(){
+        const nameInput = document.getElementById('memberName');
+        const name = nameInput.value.trim();
+        if (!name){ alert('Enter member name'); return; }
+        const date = dateInput.value || new Date().toLocaleDateString();
+        const records = JSON.parse(localStorage.getItem('attendance')) || [];
+        records.push({ name, date });
+        localStorage.setItem('attendance', JSON.stringify(records));
+        alert('Attendance marked for ' + name + ' on ' + date);
+        nameInput.value = '';
+        dateInput.value = '';
+        renderAttendance();
+      });
+    }
+
+    renderAttendance();
+  </script>
+</body>
+</html>
+
+

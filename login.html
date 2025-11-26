@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Login - FitLife Gym</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    /* Password toggle button */
+    .password-container {
+      position: relative;
+    }
+    .toggle-password {
+      position: absolute;
+      right: 10px;
+      top: 50%;
+      transform: translateY(-50%);
+      background: transparent;
+      border: none;
+      cursor: pointer;
+      font-size: 14px;
+      color: #555;
+    }
+  </style>
+</head>
+<body>
+  <nav class="navbar">
+    <a href="index.html" class="logo">FitLife Gym</a>
+    <button id="menuBtn" class="menu-btn">☰</button>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="membership.html">Membership</a></li>
+      <li><a href="trainers.html">Trainers</a></li>
+      <li><a href="workouts.html">Workouts</a></li>
+      <li><a href="bmi.html">BMI</a></li>
+      <li><a href="attendance.html">Attendance</a></li>
+      <li><a href="signup.html">Sign Up</a></li>
+    </ul>
+  </nav>
+
+  <section class="form-section content">
+    <div class="form-container">
+      <h2>Login</h2>
+      <form id="loginForm">
+        <input id="loginEmail" type="email" placeholder="Email" required />
+
+        <div class="password-container">
+          <input id="loginPassword" type="password" placeholder="Password" required />
+          <button type="button" class="toggle-password">Show</button>
+        </div>
+
+        <button class="btn" type="submit">Login</button>
+      </form>
+      <p>Don't have an account? <a href="signup.html">Sign Up</a></p>
+    </div>
+  </section>
+
+  <script src="script.js"></script>
+  <script>
+    // Login functionality
+    const loginForm = document.getElementById('loginForm');
+
+    if (loginForm){
+      loginForm.addEventListener('submit', function(e){
+        e.preventDefault();
+        const email = document.getElementById('loginEmail').value.trim();
+        const password = document.getElementById('loginPassword').value.trim();
+        const user = JSON.parse(localStorage.getItem('gymUser'));
+
+        if (!user){
+          alert('No user found. Please signup.');
+          return;
+        }
+
+        if (user.email === email && user.password === password){
+          alert('Login successful');
+          window.location.href = 'index.html';
+        } else {
+          alert('Email or password incorrect');
+        }
+      });
+    }
+
+    // Show/hide password toggle
+    const toggleBtn = document.querySelector('.toggle-password');
+    const passwordInput = document.getElementById('loginPassword');
+
+    toggleBtn.addEventListener('click', () => {
+      if (passwordInput.type === 'password') {
+        passwordInput.type = 'text';
+        toggleBtn.textContent = 'Hide';
+      } else {
+        passwordInput.type = 'password';
+        toggleBtn.textContent = 'Show';
+      }
+    });
+  </script>
+</body>
+</html>
