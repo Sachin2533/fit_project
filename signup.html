@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Sign Up - FitLife Gym</title>
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <nav class="navbar">
+    <a href="index.html" class="logo">FitLife Gym</a>
+    <button id="menuBtn" class="menu-btn">☰</button>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="membership.html">Membership</a></li>
+      <li><a href="trainers.html">Trainers</a></li>
+      <li><a href="workouts.html">Workouts</a></li>
+      <li><a href="meal-plans.html">Meal Plans</a></li>
+      <li><a href="bmi.html">BMI</a></li>
+      <li><a href="attendance.html">Attendance</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="login.html">Login</a></li>
+    </ul>
+  </nav>
+
+  <main class="auth-page">
+    <section class="auth-message signup-message">
+      <span>START TODAY</span>
+      <h1>Your stronger self is waiting.</h1>
+      <p>Create an account and take the first simple step toward a healthier routine.</p>
+      <div class="auth-points"><p>✓ Beginner-friendly workouts</p><p>✓ Flexible membership plans</p><p>✓ Helpful fitness tools</p></div>
+    </section>
+    <section class="form-section">
+    <div class="form-container auth-form">
+      <div class="form-icon">💪</div>
+      <h2>Create Account</h2>
+      <p>Join the FitLife community.</p>
+      <p id="selectedPlanMessage" class="selected-plan-message"></p>
+      <form id="signupForm">
+        <label for="signupName">Full name</label>
+        <input id="signupName" type="text" placeholder="Enter your full name" required />
+        <label for="signupEmail">Email address</label>
+        <input id="signupEmail" type="email" placeholder="you@example.com" required />
+        <label for="signupPassword">Password</label>
+        <div class="password-container">
+          <input id="signupPassword" type="password" minlength="6" placeholder="At least 6 characters" required />
+          <button type="button" class="toggle-password">Show</button>
+        </div>
+        <button class="btn auth-submit" type="submit">Create Account</button>
+      </form>
+      <p>Already have an account? <a href="login.html">Login</a></p>
+    </div>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>

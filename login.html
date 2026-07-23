@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Login - FitLife Gym</title>
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <nav class="navbar">
+    <a href="index.html" class="logo">FitLife Gym</a>
+    <button id="menuBtn" class="menu-btn">☰</button>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="membership.html">Membership</a></li>
+      <li><a href="trainers.html">Trainers</a></li>
+      <li><a href="workouts.html">Workouts</a></li>
+      <li><a href="meal-plans.html">Meal Plans</a></li>
+      <li><a href="bmi.html">BMI</a></li>
+      <li><a href="attendance.html">Attendance</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="signup.html">Sign Up</a></li>
+    </ul>
+  </nav>
+
+  <main class="auth-page">
+    <section class="auth-message">
+      <span>WELCOME BACK</span>
+      <h1>Continue your fitness journey.</h1>
+      <p>Log in to stay consistent and keep working toward your goals.</p>
+      <div class="auth-points"><p>✓ Track gym attendance</p><p>✓ Explore workout plans</p><p>✓ Stay motivated every day</p></div>
+    </section>
+    <section class="form-section">
+    <div class="form-container auth-form">
+      <div class="form-icon">👋</div>
+      <h2>Login to FitLife</h2>
+      <p>Enter your account details below.</p>
+      <form id="loginForm">
+        <label for="loginEmail">Email address</label>
+        <input id="loginEmail" type="email" placeholder="you@example.com" required />
+        <label for="loginPassword">Password</label>
+        <div class="password-container">
+          <input id="loginPassword" type="password" placeholder="Enter your password" required />
+          <button type="button" class="toggle-password">Show</button>
+        </div>
+        <button class="btn auth-submit" type="submit">Login</button>
+      </form>
+      <p>Don't have an account? <a href="signup.html">Sign Up</a></p>
+    </div>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>

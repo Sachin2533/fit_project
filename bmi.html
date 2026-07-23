@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>BMI Calculator - FitLife Gym</title>
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <nav class="navbar">
+    <a href="index.html" class="logo">FitLife Gym</a>
+    <button id="menuBtn" class="menu-btn">☰</button>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="membership.html">Membership</a></li>
+      <li><a href="trainers.html">Trainers</a></li>
+      <li><a href="workouts.html">Workouts</a></li>
+      <li><a href="meal-plans.html">Meal Plans</a></li>
+      <li><a href="bmi.html">BMI</a></li>
+      <li><a href="attendance.html">Attendance</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="login.html">Login</a></li>
+    </ul>
+  </nav>
+
+  <header class="bmi-header">
+    <span>KNOW YOUR NUMBERS</span>
+    <h1>BMI Calculator</h1>
+    <p>Check your Body Mass Index and understand what your result means.</p>
+  </header>
+
+  <section class="bmi-section content">
+    <div class="bmi-layout">
+      <div class="bmi-box fade-in">
+        <div class="bmi-box-heading">
+          <div class="bmi-icon">⚖️</div>
+          <div>
+            <h2>Enter your details</h2>
+            <p>It only takes a few seconds.</p>
+          </div>
+        </div>
+
+        <form id="bmiForm">
+          <label for="height">Your height</label>
+          <div class="input-with-unit">
+            <input id="height" type="number" min="50" max="250" placeholder="For example: 170" required />
+            <span>cm</span>
+          </div>
+
+          <label for="weight">Your weight</label>
+          <div class="input-with-unit">
+            <input id="weight" type="number" min="10" max="400" step="0.1" placeholder="For example: 65" required />
+            <span>kg</span>
+          </div>
+
+          <div class="bmi-buttons">
+            <button class="btn" type="submit">Calculate BMI</button>
+            <button id="bmiReset" class="btn reset-btn" type="button">Reset</button>
+          </div>
+        </form>
+      </div>
+
+      <div id="bmiResultCard" class="bmi-result-card fade-in">
+        <div id="emptyBmiState" class="empty-bmi-state">
+          <div class="empty-icon">📊</div>
+          <h2>Your result will appear here</h2>
+          <p>Enter your height and weight to see your BMI, category, and healthy weight range.</p>
+        </div>
+
+        <div id="filledBmiState" class="filled-bmi-state">
+          <span class="result-label">YOUR BMI RESULT</span>
+          <div id="bmiNumber" class="bmi-number">0.0</div>
+          <h2 id="bmiCategory">Category</h2>
+          <p id="bmiMessage"></p>
+
+          <div class="bmi-meter">
+            <div class="meter-pointer" id="meterPointer">▼</div>
+            <div class="meter-colors">
+              <span class="meter-under"></span>
+              <span class="meter-normal"></span>
+              <span class="meter-over"></span>
+              <span class="meter-obese"></span>
+            </div>
+            <div class="meter-labels">
+              <span>Under</span>
+              <span>Normal</span>
+              <span>Over</span>
+              <span>Obese</span>
+            </div>
+          </div>
+
+          <div class="healthy-range">
+            <span>Healthy weight range for your height</span>
+            <strong id="healthyWeight">-- kg</strong>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="bmi-info-grid">
+      <div class="bmi-guide fade-in">
+        <div class="section-heading">
+          <span>BMI GUIDE</span>
+          <h2>Understand your result</h2>
+        </div>
+        <div class="bmi-category-grid">
+          <div class="category-card under-card">
+            <strong>Below 18.5</strong>
+            <span>Underweight</span>
+          </div>
+          <div class="category-card normal-card">
+            <strong>18.5 – 24.9</strong>
+            <span>Healthy range</span>
+          </div>
+          <div class="category-card over-card">
+            <strong>25 – 29.9</strong>
+            <span>Overweight</span>
+          </div>
+          <div class="category-card obese-card">
+            <strong>30 or above</strong>
+            <span>Obese</span>
+          </div>
+        </div>
+      </div>
+
+      <aside class="bmi-tips fade-in">
+        <span class="eyebrow">HEALTHY HABITS</span>
+        <h2>More than just a number</h2>
+        <ul>
+          <li><span>🥗</span> Eat balanced and colourful meals.</li>
+          <li><span>🏃</span> Stay active for at least 30 minutes.</li>
+          <li><span>💧</span> Drink enough water every day.</li>
+          <li><span>😴</span> Give your body time to rest.</li>
+        </ul>
+      </aside>
+    </div>
+
+    <p class="bmi-note">
+      <strong>Note:</strong> BMI is a general screening tool and does not measure body fat directly.
+      Speak with a healthcare professional for personal health advice.
+    </p>
+  </section>
+
+  <footer class="footer">
+    <p>© 2026 FitLife Gym | Built with energy and purpose.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Contact - FitLife Gym</title>
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <nav class="navbar">
+    <a href="index.html" class="logo">FitLife Gym</a>
+    <button id="menuBtn" class="menu-btn">☰</button>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="membership.html">Membership</a></li>
+      <li><a href="trainers.html">Trainers</a></li>
+      <li><a href="workouts.html">Workouts</a></li>
+      <li><a href="meal-plans.html">Meal Plans</a></li>
+      <li><a href="bmi.html">BMI</a></li>
+      <li><a href="attendance.html">Attendance</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="login.html">Login</a></li>
+    </ul>
+  </nav>
+
+  <header class="page-hero contact-hero">
+    <span>WE’RE HERE TO HELP</span>
+    <h1>Contact FitLife</h1>
+    <p>Questions about plans, trainers, or workouts? Send us a message.</p>
+  </header>
+
+  <section class="content contact-layout">
+    <div class="contact-details fade-in">
+      <span class="eyebrow">GET IN TOUCH</span>
+      <h2>Let’s start a conversation</h2>
+      <p>Our friendly team usually responds within one working day.</p>
+      <div class="contact-item"><span>📍</span><div><strong>Visit us</strong><p>FitLife Gym, Main Road, Dharamshala</p></div></div>
+      <div class="contact-item"><span>📞</span><div><strong>Call us</strong><p>+91 98765 43210</p></div></div>
+      <div class="contact-item"><span>✉️</span><div><strong>Email us</strong><p>hello@fitlifegym.com</p></div></div>
+      <div class="opening-hours"><strong>Opening Hours</strong><p>Monday – Saturday: 6 AM – 10 PM</p><p>Sunday: 7 AM – 2 PM</p></div>
+    </div>
+
+    <form class="contact-form contact-card fade-in">
+      <h2>Send a message</h2>
+      <p class="demo-form-note">Demo mode: messages are saved only in this browser.</p>
+      <label for="contactName">Your name</label>
+      <input id="contactName" type="text" placeholder="Enter your name" required />
+      <label for="contactEmail">Email address</label>
+      <input id="contactEmail" type="email" placeholder="you@example.com" required />
+      <label for="contactTopic">What can we help with?</label>
+      <select id="contactTopic" required>
+        <option value="">Choose a topic</option>
+        <option>Membership</option>
+        <option>Personal Training</option>
+        <option>Workouts</option>
+        <option>Other</option>
+      </select>
+      <label for="contactMessage">Message</label>
+      <textarea id="contactMessage" placeholder="Tell us how we can help" required></textarea>
+      <button class="btn" type="submit">Send Message</button>
+      <p id="lastContactMessage" class="last-contact-message" aria-live="polite"></p>
+    </form>
+  </section>
+
+  <footer class="footer"><p>© 2026 FitLife Gym | Built with energy and purpose.</p></footer>
+  <script src="script.js"></script>
+</body>
+</html>

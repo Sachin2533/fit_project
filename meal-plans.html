@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Meal Plans - FitLife Gym</title>
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <nav class="navbar">
+    <a href="index.html" class="logo">FitLife Gym</a>
+    <button id="menuBtn" class="menu-btn">☰</button>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="membership.html">Membership</a></li>
+      <li><a href="trainers.html">Trainers</a></li>
+      <li><a href="workouts.html">Workouts</a></li>
+      <li><a href="meal-plans.html">Meal Plans</a></li>
+      <li><a href="bmi.html">BMI</a></li>
+      <li><a href="attendance.html">Attendance</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="login.html">Login</a></li>
+    </ul>
+  </nav>
+
+  <header class="page-hero meal-hero">
+    <span>FUEL YOUR PROGRESS</span>
+    <h1>Meal Plans & Macro Calculator</h1>
+    <p>Estimate your daily calories, protein, carbohydrates, and fats, then explore balanced meal ideas for your goal.</p>
+  </header>
+
+  <section class="content">
+    <div class="section-heading fade-in">
+      <span>PERSONAL ESTIMATE</span>
+      <h2>Calculate your daily macros</h2>
+      <p>Use this as a starting point and adjust gradually based on your progress and wellbeing.</p>
+    </div>
+
+    <div class="macro-layout">
+      <form id="macroForm" class="macro-form fade-in">
+        <div class="macro-form-grid">
+          <div>
+            <label for="macroSex">Calculation type</label>
+            <select id="macroSex" required>
+              <option value="">Choose one</option>
+              <option value="male">Male equation</option>
+              <option value="female">Female equation</option>
+            </select>
+          </div>
+          <div>
+            <label for="macroAge">Age</label>
+            <input id="macroAge" type="number" min="18" max="80" placeholder="Years" required />
+          </div>
+          <div>
+            <label for="macroHeight">Height</label>
+            <div class="input-with-unit"><input id="macroHeight" type="number" min="120" max="230" placeholder="170" required /><span>cm</span></div>
+          </div>
+          <div>
+            <label for="macroWeight">Weight</label>
+            <div class="input-with-unit"><input id="macroWeight" type="number" min="35" max="250" step="0.1" placeholder="70" required /><span>kg</span></div>
+          </div>
+          <div>
+            <label for="macroActivity">Activity level</label>
+            <select id="macroActivity" required>
+              <option value="">Choose activity</option>
+              <option value="1.2">Mostly seated</option>
+              <option value="1.375">Light exercise, 1–3 days/week</option>
+              <option value="1.55">Moderate exercise, 3–5 days/week</option>
+              <option value="1.725">Hard exercise, 6–7 days/week</option>
+            </select>
+          </div>
+          <div>
+            <label for="macroGoal">Primary goal</label>
+            <select id="macroGoal" required>
+              <option value="">Choose goal</option>
+              <option value="fatloss">Fat loss</option>
+              <option value="maintain">Maintain weight</option>
+              <option value="musclegain">Muscle / weight gain</option>
+            </select>
+          </div>
+        </div>
+        <button class="btn macro-submit" type="submit">Calculate My Macros</button>
+        <p class="form-helper">For adults aged 18+ only. Results are estimates, not medical advice.</p>
+      </form>
+
+      <div id="macroResult" class="macro-result fade-in">
+        <div id="macroEmpty" class="macro-empty">
+          <span>🥗</span>
+          <h3>Your nutrition target will appear here</h3>
+          <p>Complete the form to calculate a simple daily starting point.</p>
+        </div>
+        <div id="macroFilled" class="macro-filled">
+          <span class="result-label">ESTIMATED DAILY TARGET</span>
+          <div class="calorie-result"><strong id="calorieTarget">0</strong><span>kcal</span></div>
+          <div class="macro-result-grid">
+            <div class="protein-result"><span>Protein</span><strong id="proteinTarget">0g</strong><small>4 kcal per gram</small></div>
+            <div class="carb-result"><span>Carbs</span><strong id="carbTarget">0g</strong><small>4 kcal per gram</small></div>
+            <div class="fat-result"><span>Fats</span><strong id="fatTarget">0g</strong><small>9 kcal per gram</small></div>
+          </div>
+          <p id="macroSuggestion" class="macro-suggestion"></p>
+          <button id="macroReset" class="clear-button" type="button">Reset calculator</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="meal-plan-section">
+    <div class="content">
+      <div class="section-heading fade-in">
+        <span>SAMPLE DAY</span>
+        <h2>Meal ideas for your goal</h2>
+        <p>Portions should be adjusted to match your calculated target, appetite, preferences, and dietary needs.</p>
+      </div>
+
+      <div class="meal-tabs fade-in">
+        <button class="meal-tab active" data-meal="fatlossPlan">Fat Loss</button>
+        <button class="meal-tab" data-meal="musclePlan">Muscle Gain</button>
+        <button class="meal-tab" data-meal="weightPlan">Weight Gain</button>
+      </div>
+
+      <div class="diet-tabs fade-in">
+        <span>Food preference:</span>
+        <button class="diet-tab active" data-diet="veg-list">🥬 Vegetarian</button>
+        <button class="diet-tab" data-diet="nonveg-list">🍗 Non-Vegetarian</button>
+      </div>
+
+      <div id="fatlossPlan" class="meal-plan-panel show">
+        <div class="meal-plan-heading"><div><span>FAT LOSS</span><h3>High-protein, high-fibre day</h3></div><strong>Example: ~1,800 kcal</strong></div>
+        <div class="meal-list veg-list">
+          <article><span class="meal-time">BREAKFAST</span><h4>Paneer vegetable oats</h4><p>Oats cooked with vegetables, paneer cubes, and one fruit.</p><div class="meal-macros"><span>P 25g</span><span>C 58g</span><span>F 13g</span></div></article>
+          <article><span class="meal-time">LUNCH</span><h4>Paneer quinoa bowl</h4><p>Grilled paneer, quinoa, dal, salad, and unsweetened curd.</p><div class="meal-macros"><span>P 38g</span><span>C 60g</span><span>F 17g</span></div></article>
+          <article><span class="meal-time">SNACK</span><h4>Curd & roasted chana</h4><p>Unsweetened curd with roasted chana and cucumber.</p><div class="meal-macros"><span>P 18g</span><span>C 25g</span><span>F 7g</span></div></article>
+          <article><span class="meal-time">DINNER</span><h4>Tofu, dal & roti</h4><p>Tofu stir-fry, dal, two whole-wheat rotis, and salad.</p><div class="meal-macros"><span>P 35g</span><span>C 56g</span><span>F 14g</span></div></article>
+        </div>
+        <div class="meal-list nonveg-list">
+          <article><span class="meal-time">BREAKFAST</span><h4>Vegetable oats & eggs</h4><p>Oats cooked with vegetables, two eggs, and one fruit.</p><div class="meal-macros"><span>P 28g</span><span>C 55g</span><span>F 14g</span></div></article>
+          <article><span class="meal-time">LUNCH</span><h4>Grilled chicken bowl</h4><p>Grilled chicken breast, brown rice, salad, and curd.</p><div class="meal-macros"><span>P 45g</span><span>C 58g</span><span>F 13g</span></div></article>
+          <article><span class="meal-time">SNACK</span><h4>Egg & fruit snack</h4><p>Two boiled eggs, one seasonal fruit, and cucumber.</p><div class="meal-macros"><span>P 14g</span><span>C 24g</span><span>F 10g</span></div></article>
+          <article><span class="meal-time">DINNER</span><h4>Fish, roti & vegetables</h4><p>Grilled fish, two whole-wheat rotis, vegetables, and salad.</p><div class="meal-macros"><span>P 40g</span><span>C 50g</span><span>F 15g</span></div></article>
+        </div>
+      </div>
+
+      <div id="musclePlan" class="meal-plan-panel">
+        <div class="meal-plan-heading"><div><span>MUSCLE GAIN</span><h3>Protein across the day</h3></div><strong>Example: ~2,500 kcal</strong></div>
+        <div class="meal-list veg-list">
+          <article><span class="meal-time">BREAKFAST</span><h4>Paneer breakfast wrap</h4><p>Whole-wheat wrap with paneer, vegetables, curd, and fruit.</p><div class="meal-macros"><span>P 34g</span><span>C 65g</span><span>F 20g</span></div></article>
+          <article><span class="meal-time">LUNCH</span><h4>Soya rice power bowl</h4><p>Rice, dal, soya chunks, vegetables, curd, and salad.</p><div class="meal-macros"><span>P 48g</span><span>C 92g</span><span>F 18g</span></div></article>
+          <article><span class="meal-time">POST-WORKOUT</span><h4>Banana dairy smoothie</h4><p>Milk, banana, oats, peanut butter, and optional whey.</p><div class="meal-macros"><span>P 32g</span><span>C 62g</span><span>F 12g</span></div></article>
+          <article><span class="meal-time">DINNER</span><h4>Paneer roti plate</h4><p>Three rotis, paneer bhurji, dal, vegetables, and salad.</p><div class="meal-macros"><span>P 46g</span><span>C 80g</span><span>F 24g</span></div></article>
+        </div>
+        <div class="meal-list nonveg-list">
+          <article><span class="meal-time">BREAKFAST</span><h4>Egg chicken wrap</h4><p>Whole-wheat wrap with eggs, chicken, vegetables, and fruit.</p><div class="meal-macros"><span>P 42g</span><span>C 60g</span><span>F 18g</span></div></article>
+          <article><span class="meal-time">LUNCH</span><h4>Chicken rice power bowl</h4><p>Rice, dal, grilled chicken, vegetables, curd, and salad.</p><div class="meal-macros"><span>P 58g</span><span>C 88g</span><span>F 18g</span></div></article>
+          <article><span class="meal-time">POST-WORKOUT</span><h4>Banana protein smoothie</h4><p>Milk, banana, oats, and a suitable protein powder.</p><div class="meal-macros"><span>P 32g</span><span>C 58g</span><span>F 10g</span></div></article>
+          <article><span class="meal-time">DINNER</span><h4>Chicken roti plate</h4><p>Three rotis, chicken curry, vegetables, dal, and salad.</p><div class="meal-macros"><span>P 55g</span><span>C 75g</span><span>F 20g</span></div></article>
+        </div>
+      </div>
+
+      <div id="weightPlan" class="meal-plan-panel">
+        <div class="meal-plan-heading"><div><span>WEIGHT GAIN</span><h3>Energy-dense balanced day</h3></div><strong>Example: ~2,800 kcal</strong></div>
+        <div class="meal-list veg-list">
+          <article><span class="meal-time">BREAKFAST</span><h4>Peanut banana oats</h4><p>Oats with milk, banana, peanut butter, seeds, and paneer.</p><div class="meal-macros"><span>P 32g</span><span>C 88g</span><span>F 30g</span></div></article>
+          <article><span class="meal-time">LUNCH</span><h4>Vegetarian Indian thali</h4><p>Rice, rotis, dal, paneer, vegetables, curd, and salad.</p><div class="meal-macros"><span>P 45g</span><span>C 115g</span><span>F 30g</span></div></article>
+          <article><span class="meal-time">SNACK</span><h4>Nut and fruit smoothie</h4><p>Milk or soy milk, fruit, oats, nuts, and dates.</p><div class="meal-macros"><span>P 24g</span><span>C 75g</span><span>F 22g</span></div></article>
+          <article><span class="meal-time">DINNER</span><h4>Paneer rajma rice bowl</h4><p>Rice, rajma, paneer, vegetables, and avocado or nuts.</p><div class="meal-macros"><span>P 44g</span><span>C 98g</span><span>F 27g</span></div></article>
+        </div>
+        <div class="meal-list nonveg-list">
+          <article><span class="meal-time">BREAKFAST</span><h4>Egg peanut banana oats</h4><p>Oats with milk, banana, peanut butter, seeds, and eggs.</p><div class="meal-macros"><span>P 38g</span><span>C 85g</span><span>F 29g</span></div></article>
+          <article><span class="meal-time">LUNCH</span><h4>Chicken Indian thali</h4><p>Rice, rotis, dal, chicken curry, vegetables, curd, and salad.</p><div class="meal-macros"><span>P 58g</span><span>C 108g</span><span>F 27g</span></div></article>
+          <article><span class="meal-time">SNACK</span><h4>Egg sandwich & smoothie</h4><p>Egg sandwich with a milk, fruit, oats, nuts, and dates smoothie.</p><div class="meal-macros"><span>P 32g</span><span>C 82g</span><span>F 24g</span></div></article>
+          <article><span class="meal-time">DINNER</span><h4>Chicken rice bowl</h4><p>Rice, chicken, rajma, vegetables, and avocado or nuts.</p><div class="meal-macros"><span>P 55g</span><span>C 92g</span><span>F 24g</span></div></article>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="content macro-basics">
+    <div class="section-heading fade-in"><span>LEARN THE BASICS</span><h2>What each macro does</h2></div>
+    <div class="macro-basics-grid">
+      <article class="fade-in"><span>🥚</span><h3>Protein</h3><p>Supports muscle repair and growth. Spread protein-rich foods across your meals.</p><small>Sources: eggs, dairy, dal, beans, soy, fish, chicken</small></article>
+      <article class="fade-in"><span>🍚</span><h3>Carbohydrates</h3><p>Your body’s main training fuel. Prefer fibre-rich and minimally processed sources.</p><small>Sources: rice, roti, oats, fruit, potatoes, legumes</small></article>
+      <article class="fade-in"><span>🥜</span><h3>Fats</h3><p>Support hormones, cells, and absorption of fat-soluble vitamins.</p><small>Sources: nuts, seeds, oils, avocado, dairy, fish</small></article>
+      <article class="fade-in"><span>🥦</span><h3>Fibre & water</h3><p>Support digestion, fullness, hydration, and overall health.</p><small>Sources: vegetables, fruit, whole grains, pulses, water</small></article>
+    </div>
+
+    <div class="calculation-method fade-in">
+      <h3>How this calculator works</h3>
+      <div>
+        <p><strong>Calories:</strong> Estimates resting energy with the Mifflin–St Jeor equation, applies an activity factor, then uses a modest 300 kcal goal adjustment.</p>
+        <p><strong>Protein:</strong> Uses 1.6 g per kg of body weight as a simple active-adult target.</p>
+        <p><strong>Fats:</strong> Uses 25% of estimated calories. Remaining calories are assigned to carbohydrates.</p>
+      </div>
+      <small>
+        Learn more:
+        <a href="https://www.ncbi.nlm.nih.gov/books/NBK278991/table/diet-treatment-obes.table12est/" target="_blank" rel="noopener">Mifflin–St Jeor equation</a>,
+        <a href="https://www.nal.usda.gov/human-nutrition-and-food-safety/food-composition/macronutrients" target="_blank" rel="noopener">USDA macronutrients</a>,
+        <a href="https://www.cdc.gov/healthy-weight-growth/losing-weight/index.html" target="_blank" rel="noopener">CDC healthy weight loss</a>.
+      </small>
+    </div>
+
+    <div class="nutrition-note">
+      <strong>Important:</strong> These calculations and meal examples are educational estimates for generally healthy adults.
+      Needs vary with health conditions, medications, pregnancy, food allergies, culture, and training demands.
+      Consult a registered dietitian or healthcare professional for individual advice.
+    </div>
+  </section>
+
+  <footer class="footer"><p>© 2026 FitLife Gym | Built with energy and purpose.</p></footer>
+  <script src="script.js"></script>
+</body>
+</html>

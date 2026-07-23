@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Attendance - FitLife Gym</title>
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <a href="index.html" class="logo">FitLife Gym</a>
+    <button id="menuBtn" class="menu-btn">☰</button>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="membership.html">Membership</a></li>
+      <li><a href="trainers.html">Trainers</a></li>
+      <li><a href="workouts.html">Workouts</a></li>
+      <li><a href="meal-plans.html">Meal Plans</a></li>
+      <li><a href="bmi.html">BMI</a></li>
+      <li><a href="attendance.html">Attendance</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="login.html">Login</a></li>
+    </ul>
+  </nav>
+
+  <header class="page-hero attendance-hero">
+    <span>STAY CONSISTENT</span>
+    <h1>Attendance Tracker</h1>
+    <p>Record each gym visit and watch your consistency grow.</p>
+  </header>
+
+  <section class="attendance-section content">
+    <div class="attendance-stats fade-in">
+      <div><span>📅</span><strong id="totalVisits">0</strong><small>Total visits</small></div>
+      <div><span>🔥</span><strong id="thisMonthVisits">0</strong><small>This month</small></div>
+      <div><span>🏆</span><strong id="uniqueMembers">0</strong><small>Active members</small></div>
+    </div>
+
+    <div class="attendance-layout">
+      <div class="attendance-box fade-in">
+        <div class="attendance-heading"><span>✓</span><div><h2>Mark Attendance</h2><p>Add a member’s gym visit.</p></div></div>
+        <label for="memberName">Member name</label>
+        <input id="memberName" type="text" placeholder="Enter full name" />
+        <label for="attendanceDate">Visit date</label>
+        <input type="date" id="attendanceDate" />
+        <button id="markAttendance" class="btn">Mark as Present</button>
+      </div>
+
+      <div class="records-card fade-in">
+        <div class="records-heading">
+          <div><h2>Recent Records</h2><p>Your attendance is saved in this browser.</p></div>
+          <div class="record-actions">
+            <button id="exportAttendance" class="export-button">Export CSV</button>
+            <button id="clearAttendance" class="clear-button">Clear All</button>
+          </div>
+        </div>
+        <div class="record-filters">
+          <input id="attendanceSearch" type="search" placeholder="Search member name" aria-label="Search attendance by member name" />
+          <input id="attendanceFilterDate" type="date" aria-label="Filter attendance by date" />
+        </div>
+        <div id="emptyAttendance" class="empty-attendance"><span>📋</span><p>No attendance records yet.</p></div>
+        <ul id="attendanceList" class="attendance-list"></ul>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer"><p>© 2026 FitLife Gym | Built with energy and purpose.</p></footer>
+  <script src="script.js"></script>
+</body>
+</html>
